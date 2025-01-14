@@ -19,5 +19,10 @@
 - We add a new Kafka producer, which will publish the data that we got from the API to the broker (port 9092) that we have setup using docker, and then we see that in realtime using the control center at localhost:9021 
 - After executing the python script we can see that a new topic or collection has created under the name , users_created and under messages, we can see a new message each time when we execute it. 
 
+- Now i have added a new service in the docker compose file, as webserver for apache airflow, and added all the necessary paramters. 
+- Then i created a new folder called scripts, in which I added a new file called `entrypoint.sh` which will be added to the entrypoint parameter in the apache webserver in the docker compose file, also modiied the volumes parameter to map the path to entrypoint.sh to /opt/airflow/scripts/entrypoint.sh
+
+
+
 
 
