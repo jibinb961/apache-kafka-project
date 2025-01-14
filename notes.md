@@ -16,4 +16,8 @@
 
 - Now we need to publish the data that we get from the API, to KAFKA.
 
+- We add a new Kafka producer, which will publish the data that we got from the API to the broker (port 9092) that we have setup using docker, and then we see that in realtime using the control center at localhost:9021 
+- After executing the python script we can see that a new topic or collection has created under the name , users_created and under messages, we can see a new message each time when we execute it. 
+
+
 
