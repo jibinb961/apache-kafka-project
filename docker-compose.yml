@@ -106,7 +106,7 @@ services:
     environment:
       - LOAD_EX=n
       - EXECUTOR=Sequential
-      - AIRFLOW_DATABASE_SQL_ALECHEMY_CONN=postgresql+psycopg2://airflow:airflow@postgres:5432/airflow
+      - AIRFLOW_DATABASE_SQL_ALCHEMY_CONN=postgresql+psycopg2://airflow:airflow@postgres:5432/airflow
       - AIRFLOW_WEBSERVER_SECRET_KEY=this_is_a_very_secured_key 
     logging: 
       options:
