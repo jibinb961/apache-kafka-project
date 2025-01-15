@@ -1,13 +1,14 @@
 #!/bin/bash
 set -e
 
-if [ -e "/opt/airflow/requirements.txt" ]; then 
-  $(command -v pip) install --user -r requirements.txt
+# Install dependencies if requirements.txt exists
+if [ -e "/opt/airflow/requirements.txt" ]; then
+  pip install -r /opt/airflow/requirements.txt
 fi
 
-
-if [ ! -f "/opt/airflow/airflow.db" ]; then 
-    airflow db init && \ 
+# Initialize the database and create an admin user if not already initialized
+if [ ! -f "/opt/airflow/airflow.db" ]; then
+    airflow db init && \
     airflow users create \
         --username admin \
         --firstname admin \
@@ -17,6 +18,8 @@ if [ ! -f "/opt/airflow/airflow.db" ]; then
         --password admin
 fi
 
-$(command -v airflow) db upgrade
+# Upgrade the Airflow database schema
+airflow db upgrade
 
+# Start the webserver
 exec airflow webserver
